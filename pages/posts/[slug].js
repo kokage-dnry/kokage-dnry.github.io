@@ -33,7 +33,7 @@ export default function Post( { post, morePosts, preview }) {
       <article class="markdown-body">
         <h1 className={utilStyles.headingXl}>{post.title}</h1>
         <div className={utilStyles.lightText}>
-          <Date dateString={post.date} />
+          <Date dateString={post.posted} />
         </div>
         <div className={utilStyles.lightText}>
           <TagsList tagsList={post.tags} />
@@ -76,6 +76,7 @@ export async function getStaticProps({ params }) {
     'ogImage',
     'coverImage',
     'tags',
+    'posted'
   ])
 
   return {

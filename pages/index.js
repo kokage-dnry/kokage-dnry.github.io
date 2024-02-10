@@ -32,14 +32,14 @@ export default function Home({ allPostsData, allTagsData }) {
             <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
               <h2 className={utilStyles.headingLg}>記事一覧</h2>
               <ul className={utilStyles.list}>
-                {allPostsData.map(({ slug, date, title }) => (
+                {allPostsData.map(({ slug, date, title, posted }) => (
                   <li className={utilStyles.listItem} key={slug}>
                     <Link href={`/posts/${slug}`}>
                       {title}
                     </Link>
                     <br />
                     <small className={utilStyles.lightText}>
-                      <Date dateString={date} />
+                      <Date dateString={posted} />
                     </small>
                   </li>
                 ))}
@@ -80,13 +80,15 @@ export async function getStaticProps() {
   const allPostsData = getAllPosts([
     'title',
     'date',
-    'slug'
+    'slug',
+    'posted'
   ])
   const allTagsData = getAllTags([
     'title',
     'date',
     'slug',
-    'tags'
+    'tags',
+    'posted'
   ])
   console.log("all tags data:", allTagsData)
   return {
