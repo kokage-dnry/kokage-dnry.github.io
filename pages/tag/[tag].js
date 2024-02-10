@@ -29,14 +29,14 @@ export default function Tags( { tag, filteredPostsData }) {
           <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <h2 className={utilStyles.headingLg}>"{ tag }"タグの記事一覧</h2>
           <ul className={utilStyles.list}>
-            {filteredPostsData.map(({ slug, date, title }) => (
+            {filteredPostsData.map(({ slug, date, title, posted }) => (
               <li className={utilStyles.listItem} key={slug}>
                 <Link href={`/posts/${slug}`}>
                   {title}
                 </Link>
                 <br />
                 <small className={utilStyles.lightText}>
-                  <Date dateString={date} />
+                  <Date dateString={posted} />
                 </small>
               </li>
             ))}
@@ -76,7 +76,8 @@ export async function getStaticProps({ params }) {
     'title',
     'date',
     'slug',
-    'tags'
+    'tags',
+    'posted'
   ])
 
   return {
