@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import Script from 'next/script'
 
 /**
  * ページ全体にわたるGlobalに適用されるLayoutを記述
@@ -39,6 +40,23 @@ export default function Layout({ children, home }) {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@3.0.1/github-markdown.min.css" />
  
       </Head>
+      
+      <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XGV1VNQGR5"
+        />
+        <Script
+          id="gtag-config"
+          strategy="afterInteractive"
+        >
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-XGV1VNQGR5');
+        `}
+        </Script>
       <header className={styles.header}>
         {home ? (
           <>
