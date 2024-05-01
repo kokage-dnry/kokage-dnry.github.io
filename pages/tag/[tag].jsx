@@ -1,12 +1,7 @@
-import Layout, { siteTitle } from '../../components/layout'
-//import { getAllPostIds, getPostData } from '../../lib/posts'  // Comment out @2023.02.05
-import { getTagFilteredPosts, getAllTags } from '../../lib/api'
-import Head from 'next/head'
-import Date from '../../components/date'
-import utilStyles from '../../styles/utils.module.css'
-import { data } from 'remark'
-import PostBody from '../../components/post-body'
-import TagsList from '../../components/tags-list'
+import Layout, { siteTitle } from '@/components/Layout'
+import { getTagFilteredPosts, getAllTags } from '@/lib/api'
+import Date from '@/components/date'
+import utilStyles from '@/styles/utils.module.css'
 import Link from 'next/link'
 
 

@@ -1,21 +1,10 @@
-import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
+import Layout from '@/components/Layout'
+import { getPostBySlug, getAllPosts } from '@/lib/api'
 import Head from 'next/head'
-import Date from '../../components/date'
-import utilStyles from '../../styles/utils.module.css'
-import { data } from 'remark'
-import PostBody from '../../components/post-body'
-import TagsList from '../../components/tags-list'
-
-
-
-
-
-//const components = {
-  //a: CustomLink,
-  //TestComponent: dynamic(() => import('../../components/TestComponent')),
-  //Head,
-//}
+import Date from '@/components/date'
+import utilStyles from '@/styles/utils.module.css'
+import PostBody from '@/components/post-body'
+import TagsList from '@/components/tags-list'
 
 export default function Post( { post, morePosts, preview }) {
   // console.log("@Post: post.content = ", post.content)  // logging for debug
@@ -27,9 +16,6 @@ export default function Post( { post, morePosts, preview }) {
   */
   return (
     <Layout>
-      <Head>
-        <title>{post.title}</title>
-      </Head>
       <article class="markdown-body">
         <h1 className={utilStyles.headingXl}>{post.title}</h1>
         <div className={utilStyles.lightText}>
@@ -45,6 +31,7 @@ export default function Post( { post, morePosts, preview }) {
     </Layout>
   )
 }
+
 
 export async function getStaticPaths() {
   const posts = getAllPosts(['slug'])

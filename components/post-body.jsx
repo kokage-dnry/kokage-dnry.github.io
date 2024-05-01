@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react'
-import markdownToReact from '../lib/markdownToReact'
+import markdownToReact from '@/lib/markdownToReact'
 
 /**
  * HTML形式の文字列を受け取りReactコンポーネントに変換して返す関数
